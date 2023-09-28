@@ -278,3 +278,9 @@ bool ldb_amgettuple(IndexScanDesc scan, ScanDirection dir)
 
     return false;
 }
+
+bool ldb_amcanreturn(Relation index, int attrno) {
+  LDB_UNUSED(index);
+  // attrno is 1-based, 1 means the column is part of the index
+  return attrno == 1;
+}

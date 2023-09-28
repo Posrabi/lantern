@@ -255,7 +255,7 @@ Datum       hnsw_handler(PG_FUNCTION_ARGS __attribute__((unused)))
     amroutine->aminsert = ldb_aminsert;
     amroutine->ambulkdelete = ldb_ambulkdelete;
     amroutine->amvacuumcleanup = ldb_amvacuumcleanup;
-    amroutine->amcanreturn = NULL;
+    amroutine->amcanreturn = ldb_amcanreturn;
     amroutine->amcostestimate = hnswcostestimate;
     amroutine->amoptions = ldb_amoptions;
     amroutine->amproperty = NULL;

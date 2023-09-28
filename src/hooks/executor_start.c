@@ -24,7 +24,7 @@ static bool operator_used_incorrectly_walker(Node *node, void *context)
 {
     OperatorUsedCorrectlyContext *context_typed = (OperatorUsedCorrectlyContext *)context;
     if(node == NULL) return false;
-    if(IsA(node, IndexScan)) {
+    if(IsA(node, IndexScan) || IsA(node, IndexOnlyScan)) {
         context_typed->isIndexScan = true;
         bool status = plan_tree_walker((Plan *)node, operator_used_incorrectly_walker, context);
         context_typed->isIndexScan = false;
